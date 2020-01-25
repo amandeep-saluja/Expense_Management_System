@@ -11,7 +11,7 @@ import com.aman.ems.model.Savings;
  * This class is used to convert Savings Entity Object to Savings Object and
  * Savings Object to Savings Entity Object.
  * 
- * @author Infinty
+ * @author Amandeep Singh Saluja
  *
  */
 
@@ -27,13 +27,15 @@ public class SavingsTransformer {
 
 	public static Savings savingsEntityToSavings(SavingsEntity savingsEntity) throws EmsException {
 		Savings savings = new Savings();
-		savings.setBalance(savingsEntity.getBalance());
-		savings.setCategory(CategoryTransformer.listOfCategoryEntityToListOfCategory(savingsEntity.getCategory()));
-		savings.setDate(savingsEntity.getDate());
-		savings.setNeed(savingsEntity.getNeed());
-		savings.setSavingID(savingsEntity.getSavingID());
-		savings.setSavingName(savingsEntity.getSavingName());
-		savings.setTransaction(TransactionTransformer.transactionEntityToTransaction(savingsEntity.getTransaction()));
+		if(savingsEntity!=null) {
+			savings.setBalance(savingsEntity.getBalance());
+			savings.setCategory(CategoryTransformer.listOfCategoryEntityToListOfCategory(savingsEntity.getCategory()));
+			savings.setDate(savingsEntity.getDate());
+			savings.setNeed(savingsEntity.getNeed());
+			savings.setSavingID(savingsEntity.getSavingID());
+			savings.setSavingName(savingsEntity.getSavingName());
+			savings.setTransaction(TransactionTransformer.transactionEntityToTransaction(savingsEntity.getTransaction()));
+		}
 		return savings;
 	}
 
@@ -47,13 +49,15 @@ public class SavingsTransformer {
 
 	public static SavingsEntity savingsToSavingsEntity(Savings savings) throws EmsException {
 		SavingsEntity savingsEntity = new SavingsEntity();
-		savingsEntity.setBalance(savings.getBalance());
-		savingsEntity.setCategory(CategoryTransformer.listOfCategoryToListOfCategoryEntity(savings.getCategory()));
-		savingsEntity.setDate(savings.getDate());
-		savingsEntity.setNeed(savings.getNeed());
-		savingsEntity.setSavingID(savings.getSavingID());
-		savingsEntity.setSavingName(savings.getSavingName());
-		savingsEntity.setTransaction(TransactionTransformer.transactionToTransactionEntity(savings.getTransaction()));
+		if(savings!=null) {
+			savingsEntity.setBalance(savings.getBalance());
+			savingsEntity.setCategory(CategoryTransformer.listOfCategoryToListOfCategoryEntity(savings.getCategory()));
+			savingsEntity.setDate(savings.getDate());
+			savingsEntity.setNeed(savings.getNeed());
+			savingsEntity.setSavingID(savings.getSavingID());
+			savingsEntity.setSavingName(savings.getSavingName());
+			savingsEntity.setTransaction(TransactionTransformer.transactionToTransactionEntity(savings.getTransaction()));
+		}
 		return savingsEntity;
 	}
 
@@ -69,10 +73,12 @@ public class SavingsTransformer {
 	public static List<Savings> listOfSavingsEntityToListOfSavings(List<SavingsEntity> listOfSavingsEntities)
 			throws EmsException {
 		List<Savings> listOfSavings = new ArrayList<Savings>();
-		Savings savings = null;
-		for (SavingsEntity savingsEntity : listOfSavingsEntities) {
-			savings = savingsEntityToSavings(savingsEntity);
-			listOfSavings.add(savings);
+		if(listOfSavingsEntities!=null) {
+			Savings savings = null;
+			for (SavingsEntity savingsEntity : listOfSavingsEntities) {
+				savings = savingsEntityToSavings(savingsEntity);
+				listOfSavings.add(savings);
+			}
 		}
 		return listOfSavings;
 	}
@@ -89,10 +95,12 @@ public class SavingsTransformer {
 	public static List<SavingsEntity> listOfSavingsToListOfSavingsEntity(List<Savings> listOfSavingss)
 			throws EmsException {
 		List<SavingsEntity> listOfSavingsEntities = new ArrayList<SavingsEntity>();
-		SavingsEntity savingsEntity = null;
-		for (Savings savings : listOfSavingss) {
-			savingsEntity = savingsToSavingsEntity(savings);
-			listOfSavingsEntities.add(savingsEntity);
+		if(listOfSavingss!=null) {
+			SavingsEntity savingsEntity = null;
+			for (Savings savings : listOfSavingss) {
+				savingsEntity = savingsToSavingsEntity(savings);
+				listOfSavingsEntities.add(savingsEntity);
+			}
 		}
 		return listOfSavingsEntities;
 	}

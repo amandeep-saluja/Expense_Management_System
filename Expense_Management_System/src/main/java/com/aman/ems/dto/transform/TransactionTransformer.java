@@ -11,7 +11,7 @@ import com.aman.ems.model.Transaction;
  * This class is used to convert Transaction Entity Object to Transaction Object
  * and Transaction Object to Transaction Entity Object.
  * 
- * @author Infinty
+ * @author Amandeep Singh Saluja
  *
  */
 

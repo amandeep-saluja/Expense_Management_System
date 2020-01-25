@@ -11,7 +11,7 @@ import com.aman.ems.model.Category;
  * This class is used to convert Category Entity Object to Category Object and
  * Category Object to Category Entity Object.
  * 
- * @author Infinty
+ * @author Amandeep Singh Saluja
  *
  */
 

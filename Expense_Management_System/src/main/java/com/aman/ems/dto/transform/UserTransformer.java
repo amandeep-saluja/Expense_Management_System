@@ -7,7 +7,7 @@ import com.aman.ems.model.User;
 /**
  * This class is used to convert UserEntity to User and User to UserEntity.
  * 
- * @author Infinty
+ * @author Amandeep Singh Saluja
  *
  */
 
@@ -23,20 +23,22 @@ public class UserTransformer {
 
 	public static User UserEntityToUser(UserEntity userEntity) throws EmsException {
 		User user = new User();
-		user.setAddress(AddressTransformer.addressEntityToAddress(userEntity.getAddress()));
-		user.setDateOfBirth(userEntity.getDateOfBirth());
-		user.setEmailId(userEntity.getEmailId());
-		user.setFirstName(userEntity.getFirstName());
-		user.setGender(userEntity.getGender());
-		user.setLastName(userEntity.getLastName());
-		user.setListOfBank(BankTransformer.listOfBankEntityToListOfBank(userEntity.getListOfBank()));
-		user.setListOfExpense(ExpenseTransformer.listOfExpenseEntityToListOfExpense(userEntity.getListOfExpense()));
-		user.setListOfSavings(SavingsTransformer.listOfSavingsEntityToListOfSavings(userEntity.getListOfSavings()));
-		user.setOccupation(OccupationTransformer.occupationEntityToOccupation(userEntity.getOccupation()));
-		user.setPassword(userEntity.getPassword());
-		user.setPhoneNumber(userEntity.getPhoneNumber());
-		user.setUserId(userEntity.getUserId());
-		user.setUserName(userEntity.getUserName());
+		if(userEntity!=null) {
+			user.setAddress(AddressTransformer.addressEntityToAddress(userEntity.getAddress()));
+			user.setDateOfBirth(userEntity.getDateOfBirth());
+			user.setEmailId(userEntity.getEmailId());
+			user.setFirstName(userEntity.getFirstName());
+			user.setGender(userEntity.getGender());
+			user.setLastName(userEntity.getLastName());
+			user.setListOfBank(BankTransformer.listOfBankEntityToListOfBank(userEntity.getListOfBank()));
+			user.setListOfExpense(ExpenseTransformer.listOfExpenseEntityToListOfExpense(userEntity.getListOfExpense()));
+			user.setListOfSavings(SavingsTransformer.listOfSavingsEntityToListOfSavings(userEntity.getListOfSavings()));
+			user.setOccupation(OccupationTransformer.occupationEntityToOccupation(userEntity.getOccupation()));
+			user.setPassword(userEntity.getPassword());
+			user.setPhoneNumber(userEntity.getPhoneNumber());
+			user.setUserId(userEntity.getUserId());
+			user.setUserName(userEntity.getUserName());			
+		}
 		return user;
 	}
 
@@ -50,21 +52,23 @@ public class UserTransformer {
 
 	public static UserEntity userToUserEntity(User user) throws EmsException {
 		UserEntity userEntity = new UserEntity();
-		userEntity.setAddress(AddressTransformer.addressToAddressEntity(user.getAddress()));
-		userEntity.setDateOfBirth(user.getDateOfBirth());
-		userEntity.setEmailId(user.getEmailId());
-		userEntity.setFirstName(user.getFirstName());
-		userEntity.setGender(user.getGender());
-		userEntity.setLastName(user.getLastName());
-		userEntity.setListOfBank(BankTransformer.listOfBankToListOfBankEntity(user.getListOfBank()));
-		userEntity.setListOfExpense(ExpenseTransformer.listOfExpenseToListOfExpenseEntity(user.getListOfExpense()));
-		userEntity.setListOfSavings(SavingsTransformer.listOfSavingsToListOfSavingsEntity(user.getListOfSavings()));
-		userEntity.setOccupation(OccupationTransformer.occuaptionToOccupationEntity(user.getOccupation()));
-		userEntity.setPassword(user.getPassword());
-		userEntity.setPhoneNumber(user.getPhoneNumber());
-		userEntity.setPocketMoney(user.getPocketMoney());
-		userEntity.setUserId(user.getUserId());
-		userEntity.setUserName(user.getUserName());
+		if(user!=null) {
+			userEntity.setAddress(AddressTransformer.addressToAddressEntity(user.getAddress()));
+			userEntity.setDateOfBirth(user.getDateOfBirth());
+			userEntity.setEmailId(user.getEmailId());
+			userEntity.setFirstName(user.getFirstName());
+			userEntity.setGender(user.getGender());
+			userEntity.setLastName(user.getLastName());
+			userEntity.setListOfBank(BankTransformer.listOfBankToListOfBankEntity(user.getListOfBank()));
+			userEntity.setListOfExpense(ExpenseTransformer.listOfExpenseToListOfExpenseEntity(user.getListOfExpense()));
+			userEntity.setListOfSavings(SavingsTransformer.listOfSavingsToListOfSavingsEntity(user.getListOfSavings()));
+			userEntity.setOccupation(OccupationTransformer.occuaptionToOccupationEntity(user.getOccupation()));
+			userEntity.setPassword(user.getPassword());
+			userEntity.setPhoneNumber(user.getPhoneNumber());
+			userEntity.setPocketMoney(user.getPocketMoney());
+			userEntity.setUserId(user.getUserId());
+			userEntity.setUserName(user.getUserName());
+		}
 		return userEntity;
 	}
 }

@@ -11,7 +11,7 @@ import com.aman.ems.model.Bank;
  * This class is used to convert Bank Entity Object to Bank Object and Bank
  * Object to Bank Entity Object.
  * 
- * @author Infinty
+ * @author Amandeep Singh Saluja
  *
  */
 
@@ -27,11 +27,13 @@ public class BankTransformer {
 
 	public static Bank bankEntityToBank(BankEntity bankEntity) throws EmsException {
 		Bank bank = new Bank();
-		bank.setAccountId(bankEntity.getAccountId());
-		bank.setAddress(AddressTransformer.addressEntityToAddress(bankEntity.getAddress()));
-		bank.setBalance(bankEntity.getBalance());
-		bank.setBankId(bankEntity.getBankId());
-		bank.setBankName(bankEntity.getBankName());
+		if(bankEntity!=null) {
+			bank.setAccountId(bankEntity.getAccountId());
+			bank.setAddress(AddressTransformer.addressEntityToAddress(bankEntity.getAddress()));
+			bank.setBalance(bankEntity.getBalance());
+			bank.setBankId(bankEntity.getBankId());
+			bank.setBankName(bankEntity.getBankName());
+		}
 		return bank;
 	}
 
@@ -45,10 +47,12 @@ public class BankTransformer {
 
 	public static BankEntity bankEntityToBank(Bank bank) throws EmsException {
 		BankEntity bankEntity = new BankEntity();
-		bankEntity.setAccountId(bank.getAccountId());
-		bankEntity.setAddress(AddressTransformer.addressToAddressEntity(bank.getAddress()));
-		bankEntity.setBalance(bank.getBalance());
-		bankEntity.setBankId(bank.getBankId());
+		if(bank!=null) {
+			bankEntity.setAccountId(bank.getAccountId());
+			bankEntity.setAddress(AddressTransformer.addressToAddressEntity(bank.getAddress()));
+			bankEntity.setBalance(bank.getBalance());
+			bankEntity.setBankId(bank.getBankId());
+		}
 		return bankEntity;
 	}
 
@@ -63,10 +67,12 @@ public class BankTransformer {
 
 	public static List<BankEntity> listOfBankToListOfBankEntity(List<Bank> listOfBank) throws EmsException {
 		List<BankEntity> listOfBankEntity = new ArrayList<>();
-		BankEntity bankEntity = null;
-		for (Bank bank : listOfBank) {
-			bankEntity = BankTransformer.bankEntityToBank(bank);
-			listOfBankEntity.add(bankEntity);
+		if(listOfBank!=null) {
+			BankEntity bankEntity = null;
+			for (Bank bank : listOfBank) {
+				bankEntity = BankTransformer.bankEntityToBank(bank);
+				listOfBankEntity.add(bankEntity);
+			}			
 		}
 		return listOfBankEntity;
 	}
@@ -82,10 +88,12 @@ public class BankTransformer {
 
 	public static List<Bank> listOfBankEntityToListOfBank(List<BankEntity> listOfBankEntity) throws EmsException {
 		List<Bank> listOfBank = new ArrayList<>();
-		Bank bank = null;
-		for (BankEntity bankEntity : listOfBankEntity) {
-			bank = BankTransformer.bankEntityToBank(bankEntity);
-			listOfBank.add(bank);
+		if(listOfBankEntity!=null) {
+			Bank bank = null;
+			for (BankEntity bankEntity : listOfBankEntity) {
+				bank = BankTransformer.bankEntityToBank(bankEntity);
+				listOfBank.add(bank);
+			}
 		}
 		return listOfBank;
 	}

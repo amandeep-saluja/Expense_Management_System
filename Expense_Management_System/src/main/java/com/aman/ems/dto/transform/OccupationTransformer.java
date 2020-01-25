@@ -8,7 +8,7 @@ import com.aman.ems.model.Occupation;
  * This class is used to convert Occupation Entity to Occupation and Occupation
  * to Occupation Entity.
  * 
- * @author Infinty
+ * @author Amandeep Singh Saluja
  *
  */
 
@@ -24,12 +24,14 @@ public class OccupationTransformer {
 
 	public static Occupation occupationEntityToOccupation(OccupationEntity occupationEntity) throws EmsException {
 		Occupation occupation = new Occupation();
-		occupation.setAddress(AddressTransformer.addressEntityToAddress(occupationEntity.getAddress()));
-		occupation.setCompany(occupationEntity.getCompany());
-		occupation.setJobId(occupationEntity.getJobId());
-		occupation.setJobType(occupationEntity.getJobType());
-		occupation.setRole(occupationEntity.getRole());
-		occupation.setSalary(occupationEntity.getSalary());
+		if(occupationEntity!=null) {
+			occupation.setAddress(AddressTransformer.addressEntityToAddress(occupationEntity.getAddress()));
+			occupation.setCompany(occupationEntity.getCompany());
+			occupation.setJobId(occupationEntity.getJobId());
+			occupation.setJobType(occupationEntity.getJobType());
+			occupation.setRole(occupationEntity.getRole());
+			occupation.setSalary(occupationEntity.getSalary());
+		}
 		return occupation;
 	}
 
@@ -44,12 +46,14 @@ public class OccupationTransformer {
 
 	public static OccupationEntity occuaptionToOccupationEntity(Occupation occupation) throws EmsException {
 		OccupationEntity occupationEntity = new OccupationEntity();
-		occupationEntity.setAddress(AddressTransformer.addressToAddressEntity(occupation.getAddress()));
-		occupationEntity.setCompany(occupation.getCompany());
-		occupationEntity.setJobId(occupation.getJobId());
-		occupationEntity.setJobType(occupation.getJobType());
-		occupationEntity.setRole(occupation.getRole());
-		occupationEntity.setSalary(occupation.getSalary());
+		if(occupation!=null) {
+			occupationEntity.setAddress(AddressTransformer.addressToAddressEntity(occupation.getAddress()));
+			occupationEntity.setCompany(occupation.getCompany());
+			occupationEntity.setJobId(occupation.getJobId());
+			occupationEntity.setJobType(occupation.getJobType());
+			occupationEntity.setRole(occupation.getRole());
+			occupationEntity.setSalary(occupation.getSalary());
+		}
 		return occupationEntity;
 	}
 
