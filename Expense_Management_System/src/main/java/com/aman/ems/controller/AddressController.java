@@ -16,7 +16,7 @@ import com.aman.ems.serviceImpl.AddressServiceImpl;
  * This class is used to Convert Entity to model classes and some other
  * important activities.
  * 
- * @author Infinty
+ * @author Amandeep Singh Saluja
  *
  */
 
@@ -42,6 +42,7 @@ public class AddressController {
 				address = AddressTransformer.addressEntityToAddress(addressEntity);
 		} catch (Exception e) {
 			System.out.println("Exception Occured: " + e.getMessage());
+			throw e;
 		}
 		return address;
 	}
@@ -62,6 +63,7 @@ public class AddressController {
 				user = UserTransformer.UserEntityToUser(userEntity);
 		} catch (Exception e) {
 			System.out.println("Exception Occured: " + e.getMessage());
+			throw e;
 		}
 		return user;
 	}
@@ -81,6 +83,7 @@ public class AddressController {
 				b = addressServiceImpl.addressExists(addressEntity);
 		} catch (Exception e) {
 			System.out.println("Exception Occured: " + e.getMessage());
+			throw e;
 		}
 		return b;
 	}
@@ -102,6 +105,7 @@ public class AddressController {
 				return AddressTransformer.addressEntityToAddress(addressEntity2);
 		} catch (Exception e) {
 			System.out.println("Exception Occured: " + e.getMessage());
+			throw e;
 		}
 		return null;
 	}
